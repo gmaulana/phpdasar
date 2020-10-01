@@ -1,0 +1,53 @@
+<?php
+require 'functions.php';
+
+if (isset($_POST['registrasi'])) {
+  if (registrasi($_POST) > 0) {
+    echo "<script>
+            alert('Kamu berhasil daftarnih, tinggal login aja!');
+            document.location.href = 'login.php';
+          </script>";
+    return false;
+  } else {
+    echo 'user gagal didaftarin nih';
+  }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Registrasi</title>
+</head>
+
+<body>
+  <h3>FORM REGISTRASI</h3>
+  <form action="" method="POST">
+    <ul>
+      <li>
+        <label>
+          Username
+          <input type="text" name="username" autofocus autocomplete="off" required>
+        </label>
+      </li>
+      <li>
+        <label>
+          Password
+          <input type="password" name="password1" required>
+        </label>
+      </li>
+      <li>
+        <label>
+          Konfirmasi Password
+          <input type="password" name="password2" required>
+        </label>
+      </li>
+      <button type="submit" name="registrasi">Registrasi</button>
+    </ul>
+  </form>
+</body>
+
+</html>
